@@ -19,7 +19,7 @@ var uiConfig = {
             return true;
         },
         uiShown: function() {
-            document.getElementById("loader").style.display = 'none';
+            // document.getElementById("loader").style.display = 'none';
         }
     },
     credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
