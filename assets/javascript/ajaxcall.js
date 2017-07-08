@@ -44,6 +44,7 @@ function trailAjaxCall(url) {
 			createResultsFromAjax(response.places)
 			console.log(response.places);
 			console.log((response.places).length);
+			storage(response);
 		})
 }
 
