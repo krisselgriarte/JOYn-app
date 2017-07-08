@@ -41,6 +41,7 @@ function trailAjaxCall(url) {
 			beforeSend: function(jqXHR, settings) {
   }
 		}).done(function(response) {
+			console.log(response);
 			createResultsFromAjax(response.places)
 			console.log(response.places);
 			console.log((response.places).length);
