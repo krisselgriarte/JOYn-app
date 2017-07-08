@@ -35,26 +35,42 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 });
 
 $("#locationFormSubmit").on("click", function() {
-	event.preventDefault();
-
-	sessionStorage.clear();
-
-	sessionStorage.setItem("country", $("#countryId").val());
-    sessionStorage.setItem("state", $("#stateId").val());
-    sessionStorage.setItem("city", $("#cityId").val());
-    sessionStorage.setItem("latitude", "");
-    sessionStorage.setItem("longitude", "");
 	
-	$(location).attr('href', 'activitySelect.html');
-	return false;
+	event.preventDefault();
+	if (validateForm(".locationField")) {
+		sessionStorage.clear();
+
+		sessionStorage.setItem("country", $("#countryId").val());
+	    sessionStorage.setItem("state", $("#stateId").val());
+	    sessionStorage.setItem("city", $("#cityId").val());
+	    sessionStorage.setItem("latitude", "");
+	    sessionStorage.setItem("longitude", "");
+		
+		$(location).attr('href', 'activitySelect.html');
+		return false;
+	} else {
+		alert("Krissy fix this");
+	}
 });
 
 $("#activitySubmit").on("click", function() {
 	event.preventDefault();
-
-	sessionStorage.setItem("radius", $("#radiusInput").val());
-    sessionStorage.setItem("activity", $("#subOutdoorsSelect").val());
-	
-	$(location).attr('href', 'results.html');
-	return false;
+	if (validateForm(".activityField")) {
+		sessionStorage.setItem("radius", $("#radiusInput").val());
+	    sessionStorage.setItem("activity", $("#subOutdoorsSelect").val());
+		
+		$(location).attr('href', 'results.html');
+		return false;
+	} else {
+		alert("Krissy fix this");
+	}
 });
+
+function validateForm(formClass) {
+  var isValid = true;
+  $(formClass).each(function() {
+    if ( $(this).val() === '' )
+        isValid = false;
+  });
+  return isValid;
+}
