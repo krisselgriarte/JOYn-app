@@ -1,0 +1,34 @@
+body {
+	background-color: #625F5F;
+	background-size: 100% 100%;
+	color: #625F5F;
+}
+
+.btn-primary, .btn-default {
+	background-color: #25233c;
+	border-color: #25233c;
+	color: white;
+}
+
+.btn-primary:hover .btn-default:hover {
+	width: 100%;
+	background-color: yellow;
+}
+
+
+.title {
+	text-align: center;
+	color: 625F5F;
+	
+}
+
+
+.jumbotron {
+	background-color: 504A4A;
+	color: 625F5F;
+	margin-top: 80px;
+}
+
+legend {
+	color: white;
+}
