@@ -6,6 +6,8 @@ function createResultsFromAjax (arr) {
 		var moreInfoButton = $("<button class='btn-info'>");
 		var resultDivName = $("<p>");
 		moreInfoButton.text("Info");
+		moreInfoButton.attr("data-toggle", "modal");
+		moreInfoButton.attr("data-target", "#exampleModalLong");
 		dislikeButton.text("Nope");
 		likeButton.text("Like");
 		resultDiv.attr(arr[i]);
