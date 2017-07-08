@@ -1,15 +1,22 @@
 body {
 	background: url(../images/background.jpg) no-repeat fixed;
 	background-size: 100% 100%;
-	color: #625F5F;
+	color: black;
 }
 
 .title {
 	text-align: center;
-	color: white;
+	color: black;
 
 }
 
+.joyn {
+	font-size: 48px;
+}
+
+h1 {
+	font-size: 12px;
+}
 .jumbotron {
    background: rgb(200, 54, 54);
    background: rgba(200, 54, 54, 0.5); 
