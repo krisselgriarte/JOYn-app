@@ -21,7 +21,7 @@ $("#locationButton").on("click", function() {
       	sessionStorage.setItem("country", "");
     	sessionStorage.setItem("state", "");
     	sessionStorage.setItem("city", "");
-  		$(location).attr('href', 'something.html');
+  		$(location).attr('href', 'activitySelect.html');
 	};
 
 	function error(err) {
