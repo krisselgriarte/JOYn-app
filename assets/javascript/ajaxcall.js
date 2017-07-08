@@ -39,10 +39,11 @@ function trailAjaxCall(url) {
 			url: url,
 			method: "GET",
 			beforeSend: function(jqXHR, settings) {
-      document.write(settings.url);
   }
 		}).done(function(response) {
-			console.log(response);
+			createResultsFromAjax(response.places)
+			console.log(response.places);
+			console.log((response.places).length);
 		})
 }
 
