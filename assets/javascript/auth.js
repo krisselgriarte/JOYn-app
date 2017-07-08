@@ -1,12 +1,12 @@
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyAb3pnEVMqut_OGvxbd0jLIpPU0zZN54fQ",
-    authDomain: "joyn-84eb5.firebaseapp.com",
-    databaseURL: "https://joyn-84eb5.firebaseio.com",
-    projectId: "joyn-84eb5",
-    storageBucket: "joyn-84eb5.appspot.com",
-    messagingSenderId: "551198305678"
-    };
+  var config = {
+    apiKey: "AIzaSyDmkNfu3zs5JquSYqV35VL4CkqAix2IJBQ",
+    authDomain: "joyn-app-be5f6.firebaseapp.com",
+    databaseURL: "https://joyn-app-be5f6.firebaseio.com",
+    projectId: "joyn-app-be5f6",
+    storageBucket: "joyn-app-be5f6.appspot.com",
+    messagingSenderId: "234786048991"
+  };
 firebase.initializeApp(config);
 
 // Constants
