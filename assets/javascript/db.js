@@ -5,7 +5,7 @@ var db = firebase.database();
 var yesList = [];
 
 // TODO: Need to fix how the yesList erases when page is reloaded
-function storage(response) {
+function storeUserInfo() {
     $(".btn-yes").on("click", function (event) {
         // Variables
         var isYesListValid = true;
@@ -25,7 +25,7 @@ function storage(response) {
         // Pushes the yes activity ID to yesList arr if yes list is valid
         if (isYesListValid) {
             yesList.push($(this).parent()[0].attributes[5].value);
-            console.log($(this).parent()[0].attributes[5].value)
+            console.log($(this).parent()[0].attributes[5].value + " has been entered into the db yesList for " + currentUserEmail + ".");
         };
 
         // Sets values into Firebase DB
