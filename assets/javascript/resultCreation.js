@@ -62,10 +62,22 @@ $(".resultsContainer").on("click", ".btn-info", function() {
 	modalLat = $(this).parent()[0].attributes.lat.value;
 	modalLong = $(this).parent()[0].attributes.lon.value;
 	weatherAjaxCall();
-	$("#modalActivityType").html(modalActivityType);
+	activityImage(modalActivityType);
 })
 
 $("#exampleModalLong").on("shown.bs.modal", function () {
     google.maps.event.trigger(map, "resize");
     initMap(modalLat, modalLong);
 });
+
+function activityImage (activityName) {
+	if (activityName == "hiking") {
+		$("#modalActivityType").attr("src", "assets/images/002-sports.png");
+	} else if (activityName == "camping") {
+		$("#modalActivityType").attr("src", "assets/images/001-moon.png");
+	} else if (activityName == "mountain biking") {
+		$("#modalActivityType").attr("src", "assets/images/003-bicycle-rider.png");
+	} else {
+		return 0;
+	}
+}
