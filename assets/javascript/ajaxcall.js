@@ -46,7 +46,7 @@ function trailAjaxCall(url) {
 			console.log(response.places);
 			console.log("Number of places " + (response.places).length);
 			// Function to store information to Firebase
-			storage(response);
+			storeUserInfo();
 		})
 }
 
