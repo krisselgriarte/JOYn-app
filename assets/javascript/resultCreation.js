@@ -27,11 +27,9 @@ function createResultsFromAjax (arr) {
 }
 // $.support.cors = true;
 
+var modalLat = 10
+var modalLong = 10
 function weatherAjaxCall() {
-	$.ajaxSetup({
-	    headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Methods" : "GET, POST, PUT, DELETE", "Access-Control-Allow-Headers" : "Content-Type, Accept" }
-	});
-
 	var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + modalLat + "&lon=" + modalLong + "&APPID=348509db7b77932ecdfed1c1c297887d";
 	console.log(weatherUrl);
 	$.ajax({
