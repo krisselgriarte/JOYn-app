@@ -1,7 +1,6 @@
-
-
 var modalLat;
 var modalLong;
+
 
 function createResultsFromAjax (arr) {
 	for (var i = 0; i < arr.length; i++) {
@@ -25,19 +24,17 @@ function createResultsFromAjax (arr) {
 		$(".resultsContainer").append(resultDiv);
 	}
 }
-// $.support.cors = true;
 
-var modalLat = 10
-var modalLong = 10
 function weatherAjaxCall() {
-	var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + modalLat + "&lon=" + modalLong + "&APPID=348509db7b77932ecdfed1c1c297887d";
-	console.log(weatherUrl);
+	var weatherUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=" + modalLat + "&lon=" + modalLong + "&APPID=348509db7b77932ecdfed1c1c297887d";
+	var modalWeatherImg = "http://openweathermap.org/img/w/";
 	$.ajax({
 		method: "GET",
 		crossDomain: 'true',
 		url: weatherUrl
 	}).done(function(response){
-		console.log(response)
+		modalWeatherImg += response.weather[0].icon + ".png";
+		$("#modalWeatherImg").attr("src", modalWeatherImg);
 	})
 }
 
@@ -64,7 +61,7 @@ $(".resultsContainer").on("click", ".btn-info", function() {
 	$("#modalDirections").html($(this).parent()[0].attributes.directions.value);
 	modalLat = $(this).parent()[0].attributes.lat.value;
 	modalLong = $(this).parent()[0].attributes.lon.value;
-	$("#modalWeatherImg").attr("src", "http://openweathermap.org/img/w/10d.png");
+	weatherAjaxCall();
 	$("#modalActivityType").html(modalActivityType);
 })
 
