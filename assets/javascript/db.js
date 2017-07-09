@@ -1,3 +1,4 @@
+// Firebase link
 var db = firebase.database();
 
 // Empty array to house yes lists
@@ -7,7 +8,6 @@ var yesList = [];
 function storage(response) {
     $(".btn-yes").on("click", function (event) {
         // Variables
-        var isEmailValid = true;
         var isYesListValid = true;
         var currentUserEmail = firebase.auth().currentUser.email;
         var currentUserUID = firebase.auth().currentUser.uid;
