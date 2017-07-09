@@ -29,7 +29,7 @@ function storage(response) {
         };
 
         // Sets values into Firebase DB
-        thirdRef.set({
+        thirdRef.update({
             email: currentUserEmail,
             yesList: yesList
         });
