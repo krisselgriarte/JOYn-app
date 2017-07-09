@@ -1,3 +1,8 @@
+
+
+var modalLat;
+var modalLong;
+
 function createResultsFromAjax (arr) {
 	for (var i = 0; i < arr.length; i++) {
 		var resultDiv = $("<div class='resultDiv'>");
@@ -20,3 +25,52 @@ function createResultsFromAjax (arr) {
 		$(".resultsContainer").append(resultDiv);
 	}
 }
+// $.support.cors = true;
+
+function weatherAjaxCall() {
+	$.ajaxSetup({
+	    headers: { 'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Methods" : "GET, POST, PUT, DELETE", "Access-Control-Allow-Headers" : "Content-Type, Accept" }
+	});
+
+	var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + modalLat + "&lon=" + modalLong + "&APPID=348509db7b77932ecdfed1c1c297887d";
+	console.log(weatherUrl);
+	$.ajax({
+		method: "GET",
+		crossDomain: 'true',
+		url: weatherUrl
+	}).done(function(response){
+		console.log(response)
+	})
+}
+
+function initMap(latitude, long) {
+        var uluru = {lat: parseFloat(latitude), lng: parseFloat(long)};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+
+$(".resultsContainer").on("click", ".btn-info", function() {
+
+	console.log($(this).parent()[0].attributes);
+	var modalResultName = $(this).parent()[0].attributes.name.value;
+	var modalActivityType = $(this).parent()[0].attributes.activity_type_name.value;
+	console.log(modalResultName);
+	$("#exampleModalLongTitle").text(modalResultName);
+	$("#modalDescription").html($(this).parent()[0].attributes.description.value);
+	$("#modalDirections").html($(this).parent()[0].attributes.directions.value);
+	modalLat = $(this).parent()[0].attributes.lat.value;
+	modalLong = $(this).parent()[0].attributes.lon.value;
+	$("#modalWeatherImg").attr("src", "http://openweathermap.org/img/w/10d.png");
+	$("#modalActivityType").html(modalActivityType);
+})
+
+$("#exampleModalLong").on("shown.bs.modal", function () {
+    google.maps.event.trigger(map, "resize");
+    initMap(modalLat, modalLong);
+});
