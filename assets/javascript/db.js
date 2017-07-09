@@ -1,32 +1,37 @@
 var db = firebase.database();
 
-var email = "";
-var uniqueID = "";
+// Empty array to house yes lists
 var yesList = [];
-var users = {
-    name: email,
-    userID: uniqueID,
-    yesList: yesList,
-}
 
-
+// TODO: Need to fix how the yesList erases when page is reloaded
 function storage(response) {
     $(".btn-yes").on("click", function (event) {
-        users.name = firebase.auth().currentUser.email;
-        users.userID = firebase.auth().currentUser.uid;
+        // Variables
+        var isEmailValid = true;
+        var isYesListValid = true;
+        var currentUserEmail = firebase.auth().currentUser.email;
+        var currentUserUID = firebase.auth().currentUser.uid;
+        var rootRef = firebase.database().ref();
+        var secRef = rootRef.child('users');
+        var thirdRef = secRef.child(currentUserUID)
 
-        var isValid = true;
-        // db.ref().on("child_added", function (snapshot) {
-
+        // Ensures that repeat yes' are not logged in the yesList
         for (var i = 0; i < yesList.length; i++) {
             if (yesList[i] == $(this).parent()[0].attributes[5].value) {
-                isValid = false;
-            }
-        }
+                isYesListValid = false;
+            };
+        };
 
-        if (isValid) {
+        // Pushes the yes activity ID to yesList arr if yes list is valid
+        if (isYesListValid) {
             yesList.push($(this).parent()[0].attributes[5].value);
-            db.ref().push(users);
-        }
+            console.log($(this).parent()[0].attributes[5].value)
+        };
+
+        // Sets values into Firebase DB
+        thirdRef.set({
+            email: currentUserEmail,
+            yesList: yesList
+        });
     });
-}
+};
