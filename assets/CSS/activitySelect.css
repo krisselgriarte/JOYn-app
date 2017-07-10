@@ -1,0 +1,59 @@
+/*Activity select startes here*/
+
+body {
+	background: url(../images/background.jpg) no-repeat fixed;
+	background-size: 100% 100%;
+	
+}
+
+.container {
+	background: rgb(200, 54, 54);
+   	background: rgba(200, 54, 54, 0.5);
+	width: 50%;
+	height: 50%;
+	border: 2px solid transparent;
+	border-radius: 130px/10px;
+	margin-top: 70px;
+	padding-bottom: 20px;
+	
+}
+
+p {
+	color: #DEA96C;
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 20px;
+}
+
+#activitySelect {
+	color: black;
+}
+
+label {
+	color: #F2DDDD;
+}
+
+#activitySubmit {
+	background-color: #F3C55B;
+	border-radius: 20px;
+	color: black;
+}
+
+#back, #btnLogout {
+	color: white;
+	border: 1px solid #220E4C;
+	border-radius: 10px/10px;
+	background: rgb(50, 54, 54);
+   	background: rgba(50, 54, 54, 0.5);
+	height: 50%;
+	font-size: 14px;
+	padding: 20px 0px 20px 0px;
+}
+
+.btn-warning, .btn-group {
+	color: white;
+	margin: 20px 0px 0px 100px;
+	border-radius: 20px;
+}
+
+
+ 
