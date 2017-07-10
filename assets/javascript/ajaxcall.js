@@ -41,12 +41,10 @@ function trailAjaxCall(url) {
 			beforeSend: function(jqXHR, settings) {
   }
 		}).done(function(response) {
-			console.log(response);
-			createResultsFromAjax(response.places)
-			console.log(response.places);
+			createResultsFromAjax(response.places);
 			console.log("Number of places " + (response.places).length);
 			// Function to store information to Firebase
-			storeUserInfo();
+			storeUserInfo(response);
 		})
 }
 
