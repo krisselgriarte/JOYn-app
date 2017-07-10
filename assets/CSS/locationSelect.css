@@ -1,0 +1,63 @@
+/*LocationSelect HTML starts here*/
+
+body {
+	background: url(../images/background.jpg) no-repeat fixed;
+	background-size: 100% 100%;
+	
+}
+
+.container {
+	background: rgb(200, 54, 54);
+   	background: rgba(200, 54, 54, 0.5);
+	width: 50%;
+	height: 50%;
+	border: 2px solid transparent;
+	border-radius: 130px/10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-top: 50px;
+	padding-bottom: 20px;
+}
+
+
+#locationButton {
+	width: 100%;
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 22px;
+	color: #F2DDDD;
+	cursor: pointer;
+}
+
+
+#location {
+	color: #DDE1B1;
+	font-size: 17px;
+}
+
+#locationForm {
+	text-align: center;
+}
+
+#locationFormSubmit {
+	background-color: #F3C55B;
+	border-radius: 20px;
+	color: black;
+}
+
+#back, #btnLogout {
+	color: white;
+	border: 1px solid #220E4C;
+	border-radius: 10px/10px;
+	background: rgb(50, 54, 54);
+   	background: rgba(50, 54, 54, 0.5);
+	height: 50%;
+	font-size: 14px;
+	padding: 20px 0px 20px 0px;
+}
+
+.btn-warning, .btn-group {
+	color: white;
+	margin: 20px 0px 0px 100px;
+	border-radius: 20px;
+}
+
