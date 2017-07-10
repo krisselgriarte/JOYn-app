@@ -1,27 +1,30 @@
 var modalLat;
 var modalLong;
 
-
 function createResultsFromAjax (arr) {
-	for (var i = 0; i < arr.length; i++) {
-		var resultDiv = $("<div class='resultDiv'>");
-		var likeButton = $("<button class='btn-yes'>");
-		var dislikeButton = $("<button class='btn-no'>");
-		var moreInfoButton = $("<button class='btn-info'>");
-		var resultDivName = $("<p>");
-		moreInfoButton.text("Info");
-		moreInfoButton.attr("data-toggle", "modal");
-		moreInfoButton.attr("data-target", "#exampleModalLong");
-		dislikeButton.text("Nope");
-		likeButton.text("Like");
-		resultDiv.attr(arr[i]);
-		resultDiv.attr(arr[i].activities[0]);
-		resultDivName.text(arr[i].name);
-		resultDiv.append(resultDivName);
-		resultDiv.append(dislikeButton);
-		resultDiv.append(moreInfoButton);
-		resultDiv.append(likeButton);
-		$(".resultsContainer").append(resultDiv);
+	if (arr.length == 0) {
+		$(".resultsContainer").text("Sorry there were no results");
+	} else {
+		for (var i = 0; i < arr.length; i++) {
+			var resultDiv = $("<div class='resultDiv'>");
+			var likeButton = $("<button class='btn-yes'>");
+			var dislikeButton = $("<button class='btn-no'>");
+			var moreInfoButton = $("<button class='btn-info'>");
+			var resultDivName = $("<p>");
+			moreInfoButton.text("Info");
+			moreInfoButton.attr("data-toggle", "modal");
+			moreInfoButton.attr("data-target", "#exampleModalLong");
+			dislikeButton.text("Nope");
+			likeButton.text("Like");
+			resultDiv.attr(arr[i]);
+			resultDiv.attr(arr[i].activities[0]);
+			resultDivName.text(arr[i].name);
+			resultDiv.append(resultDivName);
+			resultDiv.append(dislikeButton);
+			resultDiv.append(moreInfoButton);
+			resultDiv.append(likeButton);
+			$(".resultsContainer").append(resultDiv);
+		}
 	}
 }
 
