@@ -46,3 +46,15 @@ function createDislikes (arr) {
 		$(".resultsContainer").append(resultDiv);
 	}
 }
+
+
+function pullLikeDislikesFromFireBase() {
+	var rootRef = firebase.database().ref();
+	var userRef = rootRef.child('users');
+	var currUserUID = firebase.auth().currentUser.uid;
+	var userRefChild = userRef.child(currUserUID);
+	userRefChild.once("value", function(snapshot){
+		var data = snapshot.val().yesList;
+		console.log(data);
+	})
+}
