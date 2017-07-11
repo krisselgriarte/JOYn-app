@@ -14,6 +14,11 @@ var eventName, eventLong, eventLat, eventDesc, eventDir;
 // Variable that stores yesList UIDs
 var yesUIDArr = [];
 
+// Store events object
+var eventsObj;
+
+var store;
+
 // TODO: Need to fix how the yesList erases when page is reloaded
 function storeUserInfo(response) {
     // Console logs AJAX call response
@@ -26,24 +31,20 @@ function storeUserInfo(response) {
     var userRefChild = userRef.child(currUserUID);
 
     // DB variables for child: events.
-    // TODO: This does not work because I can't seem to do a $(this) since the scope is outside the button. Need to find a way to store the btn-yes currEventID info outside of the btn scope.
-    // var currUserEmail = firebase.auth().currentUser.email;
-    // var currEventID = response.places.attributes[5].value;
-    // var activityRef = rootRef.child('events');
-    // var activityRefChild = activityRef.child(currEventID);
+    var activityRef = rootRef.child('events');
 
     // Stores data for DB users yesList
     userRefChild.once("value", function(snapshot) {
         var data = snapshot.val().yesList;
-        console.log(data);
         yesList = data;
     })
 
-    // activityRefChild.once("value", function(snapshot) {
-    //     var data = snapshot.val().yesUIDs;
-    //     console.log(data);
-    //     yesUIDArr = data;
-    // })
+    // Stores events object in Firebase DB
+    activityRef.once("value", function(snapshot) {
+        var data = snapshot.val();
+        // console.log(data);
+        eventsObj = data;
+    })
 
     $(".btn-yes").on("click", function (event) {
         // Variables initialized
@@ -63,14 +64,18 @@ function storeUserInfo(response) {
             }
         }
 
-        activityRefChild.once("value", function(snapshot) {
-            var data = snapshot.val().yesUIDs;
-            console.log(data);
-            yesUIDArr = data;
-        })
-
         // Pushes the UID that have selected yes for the current event
         if (isYesUIDArrValid) {
+
+            console.log(currUserUID)
+            console.log("initial " + yesUIDArr)
+            for (var eventID in eventsObj) {
+                eventID = currEventID;
+                var store1 = eventsObj[eventID].yesUIDs;
+                yesUIDArr = store1;
+                console.log(yesUIDArr);
+                
+            }
             yesUIDArr.push(currUserUID);
         }
 
