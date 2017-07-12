@@ -53,8 +53,7 @@ function getYesList() {
     currYesListRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
         var yesListObj = snapshot.val().yesList;
-        console.log(yesListObj);
-        return yesListObj;
+        likeObjConvertToArray(yesListObj);
     });
 } 
 
@@ -69,7 +68,6 @@ function getNoList() {
     currNoListRef.on('value', function(snapshot) {
         // Stores no list from Firebase
         var noListSnapObj = snapshot.val().noList;
-        console.log(noListSnapObj);
-        return noListSnapObj;
+        dislikeObjConvertToArray(noListSnapObj);
     });
 }
