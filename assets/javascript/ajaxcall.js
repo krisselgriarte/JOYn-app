@@ -7,6 +7,7 @@ var state;
 var country;
 var radius;
 
+var eventObj;
 
 function createAjaxUrl(lat, limit, lon, activity, city, country, state, radius) {
 	var baseUrl = "https://trailapi-trailapi.p.mashape.com/?";
