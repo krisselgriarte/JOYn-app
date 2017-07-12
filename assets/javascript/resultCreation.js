@@ -47,6 +47,13 @@ function initMap(latitude, long) {
           zoom: 12,
           center: uluru
         });
+
+        map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+
+        map.addListener('click', function(e) {
+        	map.setOptions({draggable: true, zoomControl: true, scrollwheel: true, disableDoubleClickZoom: false});
+  		});
+
         var marker = new google.maps.Marker({
           position: uluru,
           map: map

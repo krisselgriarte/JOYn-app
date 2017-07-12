@@ -7,6 +7,7 @@ var state;
 var country;
 var radius;
 
+var eventObj;
 
 function createAjaxUrl(lat, limit, lon, activity, city, country, state, radius) {
 	var baseUrl = "https://trailapi-trailapi.p.mashape.com/?";
@@ -44,7 +45,7 @@ function trailAjaxCall(url) {
 			createResultsFromAjax(response.places);
 			console.log("Number of places " + (response.places).length);
 			// Function to store information to Firebase
-			storeUserInfo(response);
+			storeUserInfo();
 		})
 }
 
