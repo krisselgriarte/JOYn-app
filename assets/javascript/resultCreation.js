@@ -1,5 +1,6 @@
 var modalLat;
 var modalLong;
+var likesDislikesArray;
 
 function createResultsFromAjax (arr) {
 	if (arr.length == 0) {
@@ -61,11 +62,8 @@ function initMap(latitude, long) {
       }
 
 $(".resultsContainer").on("click", ".btn-info", function() {
-
-	console.log($(this).parent()[0].attributes);
 	var modalResultName = $(this).parent()[0].attributes.name.value;
 	var modalActivityType = $(this).parent()[0].attributes.activity_type_name.value;
-	console.log(modalResultName);
 	$("#exampleModalLongTitle").text(modalResultName);
 	$("#modalDescription").html($(this).parent()[0].attributes.description.value);
 	$("#modalDirections").html($(this).parent()[0].attributes.directions.value);
@@ -91,3 +89,24 @@ function activityImage (activityName) {
 		return 0;
 	}
 }
+
+function checkResults() {
+    var userId = firebase.auth().currentUser.uid;
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('users');
+    var currListRef = userRef.child(userId);
+
+    currListRef.once('value', function(snapshot) {
+        var yesListObj = snapshot.val().yesList;
+        var noListObj = snapshot.val().noList;
+        likesDislikesArray = [];
+        for (var prop in noListObj) {
+            likesDislikesArray.push(prop);
+        }
+        for (var prop in yesListObj) {
+            likesDislikesArray.push(prop);
+        }
+        var url = createAjaxUrl(latitude, ajaxLimit, longitude, activity, city, country, state, radius);
+     	trailAjaxCall(url);
+    });
+} 
