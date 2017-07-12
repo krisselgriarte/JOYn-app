@@ -15,8 +15,8 @@ const btnLogout = document.getElementById('btnLogout');
 // DEVELOPER: Console logs the current user
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        console.log(user.uid + " is logged in.");
-        console.log(user.email);
+        console.log(user.email + " is logged in.");
+        console.log("User unique ID: " + user.uid);
     } else {
         console.log("No user is logged in.");
     }
@@ -25,5 +25,5 @@ firebase.auth().onAuthStateChanged((user) => {
 // Function to log out user
 btnLogout.addEventListener("click", function() {
     firebase.auth().signOut();
-    console.log("signed out");
+    console.log("User is signed out");
 });
