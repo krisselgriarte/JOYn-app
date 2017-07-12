@@ -1,17 +1,20 @@
-// Variables for event information
-var eventName, eventLong, eventLat, eventDesc, eventDir;
-var userId = firebase.auth().currentUser.uid;
-
 // Stores user information
+// Linked to: ajaxcall.js
 function storeUserInfo() {
     // Variables: Firebase access
     var rootRef = firebase.database().ref();
     var userRef = rootRef.child('users');
     var currUserUID = firebase.auth().currentUser.uid;
     var userRefChild = userRef.child(currUserUID);
-    var emailRef = userRefChild.child('email');
+    var userInfoRef = userRefChild.child('userInfo');
     var yesListRef = userRefChild.child('yesList');
     var noListRef = userRefChild.child('noList');
+
+    // Adds user information to Firebase primarily for ease of intrepreting db info
+    userInfoRef.set({
+        email: firebase.auth().currentUser.email,
+        name: firebase.auth().currentUser.displayName
+    })
 
     // Functionality for the yes button
     $(".btn-yes").on("click", function (event) {
@@ -46,6 +49,7 @@ function storeUserInfo() {
     });
 };
 
+// Function that gets the yes list from Firebase
 function getYesList() {
     var userId = firebase.auth().currentUser.uid;
     var rootRef = firebase.database().ref();
@@ -58,7 +62,6 @@ function getYesList() {
         likeObjConvertToArray(yesListObj);
     });
 } 
-
 
 // Function that gets no list from Firebase
 function getNoList() {
