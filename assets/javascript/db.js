@@ -25,6 +25,7 @@ function storeUserInfo() {
             eventLat: $(this).parent()[0].attributes.lat.value,
             eventDesc: $(this).parent()[0].attributes.description.value,
             eventDir: $(this).parent()[0].attributes.directions.value,
+            eventType: $(this).parent()[0].attributes.activity_type_name.value
         })
     });
 
@@ -40,6 +41,7 @@ function storeUserInfo() {
             eventLat: $(this).parent()[0].attributes.lat.value,
             eventDesc: $(this).parent()[0].attributes.description.value,
             eventDir: $(this).parent()[0].attributes.directions.value,
+            eventType: $(this).parent()[0].attributes.activity_type_name.value
         })
     });
 };
