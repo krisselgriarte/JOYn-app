@@ -1,7 +1,6 @@
 // Variables for event information
 var eventName, eventLong, eventLat, eventDesc, eventDir;
 var userId = firebase.auth().currentUser.uid;
-var dbRef = firebase.database().ref().child('users').child(userId);
 
 // Stores user information
 function storeUserInfo() {
@@ -45,23 +44,30 @@ function storeUserInfo() {
     });
 };
 
-// Function that gets yes list from Firebase
-function getYesList(dbRef) {
-    // Gets snapshot from firebase
-    dbRef.on('value', function(snapshot) {
+function getYesList() {
+    var userId = firebase.auth().currentUser.uid;
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('users');
+    var currYesListRef = userRef.child(userId);
+
+    currYesListRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
-        var yesListSnapObj = snapshot.val().yesList;
-        console.log(yesListSnapObj);
-        return yesListSnapObj;
+        var yesListObj = snapshot.val().yesList;
+        console.log(yesListObj);
+        return yesListObj;
     });
-}
+} 
 
 
 // Function that gets no list from Firebase
-function getNoList(dbRef) {
-    // Gets snapshot from firebase
-    dbRef.on('value', function(snapshot) {
-        // Stores yes list from Firebase
+function getNoList() {
+    var userId = firebase.auth().currentUser.uid;
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('users');
+    var currNoListRef = userRef.child(userId);
+    
+    currNoListRef.on('value', function(snapshot) {
+        // Stores no list from Firebase
         var noListSnapObj = snapshot.val().noList;
         console.log(noListSnapObj);
         return noListSnapObj;
