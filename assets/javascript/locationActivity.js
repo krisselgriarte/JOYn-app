@@ -49,7 +49,7 @@ $("#locationFormSubmit").on("click", function() {
 		$(location).attr('href', 'activitySelect.html');
 		return false;
 	} else {
-		alert("Krissy fix this");
+		$('#myModal').modal('show');
 	}
 });
 
@@ -62,7 +62,7 @@ $("#activitySubmit").on("click", function() {
 		$(location).attr('href', 'results.html');
 		return false;
 	} else {
-		alert("Krissy fix this");
+		$('#myModal').modal('show');
 	}
 });
 

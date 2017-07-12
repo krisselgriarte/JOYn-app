@@ -55,5 +55,17 @@ label {
 	border-radius: 20px;
 }
 
+/* The Modal */
 
- 
+.modal-content {
+	text-align: center;
+	position: relative;
+	padding: 0;
+	color: black;
+	font-size: 18px;
+}
+/*Modal-Header*/
+.modal-header {
+	background-color: #D9AB2C;
+	color: black;
+}

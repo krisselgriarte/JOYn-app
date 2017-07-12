@@ -1,0 +1,63 @@
+/*User activities starts here*/
+
+
+body {
+	background: url(../images/background.jpg) no-repeat fixed;
+	background-size: 100% 100%;
+	
+}
+
+#combine-button {
+	border: 2px solid transparent;
+	border-radius: 130px/10px;
+	margin: auto;
+	display: block;
+	width: 40%;
+}
+
+.btn-warning, .btn-group {
+	text-align: center;
+	color: white;
+	margin: 20px 0px 0px 100px;
+	border-radius: 20px;
+	font-size: 14px;
+}
+
+.populatedLikesDislikes {
+	width: 50%; 
+	height: 300px; 
+	margin: auto;
+	border: 1px solid black
+	background: rgb(200, 54, 54);
+   	background: rgba(200, 54, 54, 0.5);
+   	border-radius: 130px/10px;
+   	display: block;
+   	color: white;
+}
+
+#dislikes {
+	width: 200px;
+	background-color: #E5A21E;
+	border-radius: 30px/10px;
+	color: #281C78;
+	font-family: 'Marck Script', cursive;
+	font-size: 18px;
+}
+
+#dislikes:hover {
+	background-color: #D50E36;
+}
+
+#likes {
+	width: 200px;
+	background-color:#E5A21E;
+	margin-left: 30px;
+	border-radius: 30px/10px;
+	color:#281C78;
+	font-family: 'Marck Script', cursive;
+	font-size: 18px;
+}
+
+#likes:hover {
+	background-color: #F25454;
+}
