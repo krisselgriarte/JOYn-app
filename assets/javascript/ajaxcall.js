@@ -8,6 +8,7 @@ var country;
 var radius;
 
 var eventObj;
+var allTheResultsObj;
 
 function createAjaxUrl(lat, limit, lon, activity, city, country, state, radius) {
 	var baseUrl = "https://trailapi-trailapi.p.mashape.com/?";
@@ -41,10 +42,11 @@ function trailAjaxCall(url) {
 			method: "GET",
 			beforeSend: function(jqXHR, settings) {
   }
-		}).done(function(response) {
-			createResultsFromAjax(response.places);
-			console.log("Number of places " + (response.places).length);
-			// Function to store information to Firebase
+		}).done(function(response) {	
+			allTheResultsObj = response.places;
+			compare(allTheResultsObj, likesDislikesArray);
+        	createResultsFromAjax(allTheResultsObj);
+			// // Function to store information to Firebase
 			storeUserInfo();
 		})
 }
@@ -56,10 +58,19 @@ $( document ).ready(function() {
     city = sessionStorage.getItem("city");
     state = sessionStorage.getItem("state");
     country = sessionStorage.getItem("country");
-    radius = parseInt(sessionStorage.getItem("radius"));
-
-    console.log(latitude);
-
-     var url = createAjaxUrl(latitude, ajaxLimit, longitude, activity, city, country, state, radius);
-     trailAjaxCall(url);
+    radius = parseInt(sessionStorage.getItem("radius"));   
 });
+
+$(window).on('load', function() {
+    checkResults();
+});
+
+function compare (arr1, arr2) {
+	for (var i = arr1.length -1; i >= 0; i--) {
+		for (var j = 0; j < arr2.length; j++) {
+			if (arr1[i].activities[0].unique_id == arr2[j]) {
+				allTheResultsObj.splice(i,1);
+			}
+		}
+	}
+}
