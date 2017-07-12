@@ -30,7 +30,7 @@ function storeUserInfo() {
     // Functionality for the no button
     $(".btn-no").on("click", function (event) {
         // Variable: Store unique event ID
-        var eventRef = yesListRef.child($(this).parent()[0].attributes[5].value);
+        var eventRef = noListRef.child($(this).parent()[0].attributes[5].value);
 
         // Sets the information for the events
         eventRef.set({
@@ -43,6 +43,7 @@ function storeUserInfo() {
     });
 };
 
+// Function that gets yes list from Firebase
 function getYesList() {
     // Variables: Firebase access
     var userId = firebase.auth().currentUser.uid;
@@ -52,8 +53,24 @@ function getYesList() {
 
     currYesListRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
-        var yesListSnapObj = snapshot.val();
+        var yesListSnapObj = snapshot.val().yesList;
         console.log(yesListSnapObj);
         return yesListSnapObj;
+    });
+}
+
+// Function that gets no list from Firebase
+function getNoList() {
+    // Variables: Firebase access
+    var userId = firebase.auth().currentUser.uid;
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('users');
+    var currNoListRef = userRef.child(userId);
+
+    currNoListRef.on('value', function(snapshot) {
+        // Stores yes list from Firebase
+        var noListSnapObj = snapshot.val().noList;
+        console.log(noListSnapObj);
+        return noListSnapObj;
     });
 }
