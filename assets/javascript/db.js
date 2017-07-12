@@ -1,7 +1,9 @@
 // Variables for event information
 var eventName, eventLong, eventLat, eventDesc, eventDir;
+var userId = firebase.auth().currentUser.uid;
+var dbRef = firebase.database().ref().child('users').child(userId);
 
-// TODO: Need to fix how the yesList erases when page is reloaded
+// Stores user information
 function storeUserInfo() {
     // Variables: Firebase access
     var rootRef = firebase.database().ref();
@@ -44,14 +46,9 @@ function storeUserInfo() {
 };
 
 // Function that gets yes list from Firebase
-function getYesList() {
-    // Variables: Firebase access
-    var userId = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref();
-    var userRef = rootRef.child('users');
-    var currYesListRef = userRef.child(userId);
-
-    currYesListRef.on('value', function(snapshot) {
+function getYesList(dbRef) {
+    // Gets snapshot from firebase
+    dbRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
         var yesListSnapObj = snapshot.val().yesList;
         console.log(yesListSnapObj);
@@ -59,15 +56,11 @@ function getYesList() {
     });
 }
 
-// Function that gets no list from Firebase
-function getNoList() {
-    // Variables: Firebase access
-    var userId = firebase.auth().currentUser.uid;
-    var rootRef = firebase.database().ref();
-    var userRef = rootRef.child('users');
-    var currNoListRef = userRef.child(userId);
 
-    currNoListRef.on('value', function(snapshot) {
+// Function that gets no list from Firebase
+function getNoList(dbRef) {
+    // Gets snapshot from firebase
+    dbRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
         var noListSnapObj = snapshot.val().noList;
         console.log(noListSnapObj);
