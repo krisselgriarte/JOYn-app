@@ -46,7 +46,7 @@ function storeUserInfo() {
 };
 
 // Function that gets yes list from Firebase
-function getYesList(dbRef) {
+function getYesList() {
     // Gets snapshot from firebase
     dbRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
@@ -58,7 +58,7 @@ function getYesList(dbRef) {
 
 
 // Function that gets no list from Firebase
-function getNoList(dbRef) {
+function getNoList() {
     // Gets snapshot from firebase
     dbRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
