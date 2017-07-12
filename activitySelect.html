@@ -26,9 +26,9 @@
           <ul class="dropdown-menu">
             <li><a href="first_page.html">Home</a></li>
             <li><a href="locationSelect.html">Previous Page</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="first_page.html">Log Out</a></li>
           </ul>
-          <img src="assets/images/logo.png" width="70px" height="100px">
+          <img src="assets/images/logo.png" width="70px" height="70px">
       </div>
 
   <!-- Container -->
@@ -40,7 +40,7 @@
       <input id="radiusInput" data-slider-id='radiusSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="25"/>
 	     <br>
         <label for="activitySelect">Choose your activity
-          <select class="custom-select" id="activitySelect">
+          <select class="custom-select activityField" id="activitySelect">
     	       <option> 
              </option>
               <option value="1">Outdoors</option>
@@ -48,7 +48,7 @@
 	      </label>
 	   <div id="subOutdoors">
     	 <label for="subOutdoors">Example select</label>
-    	   <select class="custom-select" id="subOutdoorsSelect">
+    	   <select class="custom-select activityField" id="subOutdoorsSelect">
       	   <option>Camping</option>
            <option>Hiking</option>
           <option>Mountain Biking</option>
@@ -58,7 +58,24 @@
     </form>
     </div>
 
-  
+<!-- Modal for not completing the form -->
+
+
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+          <img src="assets/images/warning.png" height="80px" width="80px">
+          <br>
+          <br>
+      Please Complete form before submitting :)
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>

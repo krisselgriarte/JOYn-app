@@ -35,8 +35,8 @@ body {
 	margin: 5px auto;
 	border: 1px solid transparent;
 	border-radius: 30px/10px;
-	background: rgb(236, 124, 67);
-   	background: rgba(200, 55, 54, 0.7);
+	background: rgb(200, 54, 54);
+   	background: rgba(200, 54, 54, 0.5);
 }
 
 .btn-warning, .btn-group {
@@ -89,7 +89,7 @@ p {
 #exampleModalLongTitle, #Description, #Directions {
 	color: green;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 #modalDescription, #modalDirections {
