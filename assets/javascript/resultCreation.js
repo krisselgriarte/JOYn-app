@@ -98,15 +98,21 @@ function checkResults() {
 
     currListRef.once('value', function(snapshot) {
         var yesListObj = snapshot.val().yesList;
+        console.log(yesListObj);
         var noListObj = snapshot.val().noList;
-        likesDislikesArray = [];
-        for (var prop in noListObj) {
-            likesDislikesArray.push(prop);
-        }
-        for (var prop in yesListObj) {
-            likesDislikesArray.push(prop);
-        }
-        var url = createAjaxUrl(latitude, ajaxLimit, longitude, activity, city, country, state, radius);
-     	trailAjaxCall(url);
+        if (yesListObj == null && noListObj == null) {
+        	var url = createAjaxUrl(latitude, ajaxLimit, longitude, activity, city, country, state, radius);
+     		trailAjaxCall(url);
+        }	else {
+		        likesDislikesArray = [];
+		        for (var prop in noListObj) {
+		            likesDislikesArray.push(prop);
+		        }
+		        for (var prop in yesListObj) {
+		            likesDislikesArray.push(prop);
+		        }
+		        var url = createAjaxUrl(latitude, ajaxLimit, longitude, activity, city, country, state, radius);
+		     	trailAjaxCall(url);
+     		}
     });
 } 

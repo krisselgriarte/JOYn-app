@@ -44,10 +44,17 @@ function trailAjaxCall(url) {
   }
 		}).done(function(response) {	
 			allTheResultsObj = response.places;
-			compare(allTheResultsObj, likesDislikesArray);
-        	createResultsFromAjax(allTheResultsObj);
+			console.log(allTheResultsObj);
+			if (likesDislikesArray == null) {
+				createResultsFromAjax(allTheResultsObj);
+				storeUserInfo();
+			} else {
+				compare(allTheResultsObj, likesDislikesArray);
+        		createResultsFromAjax(allTheResultsObj);
+        		storeUserInfo();
+        	}
 			// // Function to store information to Firebase
-			storeUserInfo();
+			
 		})
 }
 
@@ -62,10 +69,12 @@ $( document ).ready(function() {
 });
 
 $(window).on('load', function() {
+	storeUserInfo();
     checkResults();
 });
 
 function compare (arr1, arr2) {
+	console.log(arr1,arr2);
 	for (var i = arr1.length -1; i >= 0; i--) {
 		for (var j = 0; j < arr2.length; j++) {
 			if (arr1[i].activities[0].unique_id == arr2[j]) {
