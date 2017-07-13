@@ -1,5 +1,6 @@
 // Linked to: ajaxcall.js
 // Stores user information
+// Linked to: ajaxcall.js
 function storeUserInfo() {
     // Variables: Firebase access
     var rootRef = firebase.database().ref();

@@ -49,7 +49,7 @@ $(".populatedLikesDislikes").on("click", ".infoBtn", function() {
 
 	console.log($(this).parent()[0].attributes);
 	var modalResultName = $(this).parent()[0].attributes.eventname.value;
-	// var modalActivityType = $(this).parent()[0].attributes.activity_type_name.value;
+	var modalActivityType = $(this).parent()[0].attributes.eventtype.value;
 	console.log(modalResultName);
 	$("#exampleModalLongTitle").text(modalResultName);
 	$("#modalDescription").html($(this).parent()[0].attributes.eventdesc.value);
@@ -57,7 +57,7 @@ $(".populatedLikesDislikes").on("click", ".infoBtn", function() {
 	modalLat = $(this).parent()[0].attributes.eventlat.value;
 	modalLong = $(this).parent()[0].attributes.eventlong.value;
 	weatherAjaxCall();
-	// activityImage(modalActivityType);
+	activityImage(modalActivityType);
 })
 
 function likeObjConvertToArray (obj) {
