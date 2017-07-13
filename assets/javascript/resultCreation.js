@@ -17,8 +17,9 @@ function createResultsFromAjax (arr) {
 			moreInfoButton.attr("data-target", "#exampleModalLong");
 			dislikeButton.text("Nope");
 			likeButton.text("Like");
-			resultDiv.attr(arr[i]);
+			resultDiv.attr(arr[i]);	
 			resultDiv.attr(arr[i].activities[0]);
+			resultDiv.attr(arr[i].activities[0].unique_id);
 			resultDivName.text(arr[i].name);
 			resultDiv.append(resultDivName);
 			resultDiv.append(dislikeButton);
