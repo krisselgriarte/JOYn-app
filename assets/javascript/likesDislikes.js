@@ -72,6 +72,7 @@ function dislikeObjConvertToArray (obj) {
 
 $( window ).on( "load", function() {
 	getYesList();
+	userActBtns();
 })
 
 $("#dislikes").on("click", function()

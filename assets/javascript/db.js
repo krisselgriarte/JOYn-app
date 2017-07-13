@@ -1,3 +1,4 @@
+// Linked to: ajaxcall.js
 // Stores user information
 // Linked to: ajaxcall.js
 function storeUserInfo() {
@@ -19,7 +20,8 @@ function storeUserInfo() {
     // Functionality for the yes button
     $(".btn-yes").on("click", function (event) {
         // Variable: Store unique event ID
-        var eventRef = yesListRef.child($(this).parent()[0].attributes[5].value);
+        var eventID = $(this).parent()[0].attributes[5].value;
+        var eventRef = yesListRef.child(eventID);
 
         // Sets the information for the events
         eventRef.set({
@@ -28,14 +30,16 @@ function storeUserInfo() {
             eventLat: $(this).parent()[0].attributes.lat.value,
             eventDesc: $(this).parent()[0].attributes.description.value,
             eventDir: $(this).parent()[0].attributes.directions.value,
-            eventType: $(this).parent()[0].attributes.activity_type_name.value
+            eventType: $(this).parent()[0].attributes.activity_type_name.value,
+            eventUID: eventID
         })
     });
 
     // Functionality for the no button
     $(".btn-no").on("click", function (event) {
         // Variable: Store unique event ID
-        var eventRef = noListRef.child($(this).parent()[0].attributes[5].value);
+        var eventID = $(this).parent()[0].attributes[5].value;
+        var eventRef = noListRef.child(eventID);
 
         // Sets the information for the events
         eventRef.set({
@@ -44,7 +48,8 @@ function storeUserInfo() {
             eventLat: $(this).parent()[0].attributes.lat.value,
             eventDesc: $(this).parent()[0].attributes.description.value,
             eventDir: $(this).parent()[0].attributes.directions.value,
-            eventType: $(this).parent()[0].attributes.activity_type_name.value
+            eventType: $(this).parent()[0].attributes.activity_type_name.value,
+            eventUID: eventID
         })
     });
 };
@@ -74,5 +79,55 @@ function getNoList() {
         // Stores no list from Firebase
         var noListSnapObj = snapshot.val().noList;
         dislikeObjConvertToArray(noListSnapObj);
+    });
+}
+
+// Function that adds functionality for userActivityPage
+function userActBtns() {
+    // Variables: Firebase access
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('users');
+    var currUserUID = firebase.auth().currentUser.uid;
+    var userRefChild = userRef.child(currUserUID);
+    var userInfoRef = userRefChild.child('userInfo');
+    var yesListRef = userRefChild.child('yesList');
+    var noListRef = userRefChild.child('noList');
+
+    // Transfers event information from yes list to no list
+    $(".populatedLikesDislikes").on("click", ".btn-no", function() {
+        if ($(this).text() == 'Move to Nopes') {
+            var eventRef = noListRef.child($(this).parent()[0].attributes[7].value);
+
+            yesListRef.child($(this).parent()[0].attributes[7].value).remove();
+            // Sets the information for the events
+            eventRef.set({
+                eventName: $(this).parent()[0].attributes[5].value,
+                eventLong: $(this).parent()[0].attributes[4].value,
+                eventLat: $(this).parent()[0].attributes[3].value,
+                eventDesc: $(this).parent()[0].attributes[1].value,
+                eventDir: $(this).parent()[0].attributes[2].value,
+                eventType: $(this).parent()[0].attributes[6].value,
+                eventUID: $(this).parent()[0].attributes[7].value
+            });
+        };
+    });
+
+    // Transfers event information from no list to yes list
+    $(".populatedLikesDislikes").on("click", ".btn-yes", function() {
+        if ($(this).text() == 'Move to Likes') {
+            var eventRef = yesListRef.child($(this).parent()[0].attributes[7].value);
+
+            noListRef.child($(this).parent()[0].attributes[7].value).remove();
+            // Sets the information for the events
+            eventRef.set({
+                eventName: $(this).parent()[0].attributes[5].value,
+                eventLong: $(this).parent()[0].attributes[4].value,
+                eventLat: $(this).parent()[0].attributes[3].value,
+                eventDesc: $(this).parent()[0].attributes[1].value,
+                eventDir: $(this).parent()[0].attributes[2].value,
+                eventType: $(this).parent()[0].attributes[6].value,
+                eventUID: $(this).parent()[0].attributes[7].value
+            });
+        };
     });
 }
