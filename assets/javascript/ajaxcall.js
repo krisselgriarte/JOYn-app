@@ -49,7 +49,9 @@ function trailAjaxCall(url) {
 				createResultsFromAjax(allTheResultsObj);
 				storeUserInfo();
 			} else {
-				compare(allTheResultsObj, likesDislikesArray);
+				if (allTheResultsObj != null) {
+					compare(allTheResultsObj, likesDislikesArray);
+				}
         		createResultsFromAjax(allTheResultsObj);
         		storeUserInfo();
         	}
