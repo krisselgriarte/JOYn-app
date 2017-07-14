@@ -95,39 +95,40 @@ function userActBtns() {
 
     // Transfers event information from yes list to no list
     $(".populatedLikesDislikes").on("click", ".btn-no", function() {
-        if ($(this).text() == 'Move to Nopes') {
-            var eventRef = noListRef.child($(this).parent()[0].attributes[7].value);
+        var eventRef = noListRef.child($(this).parent()[0].attributes[7].value);
 
-            yesListRef.child($(this).parent()[0].attributes[7].value).remove();
-            // Sets the information for the events
-            eventRef.set({
-                eventName: $(this).parent()[0].attributes[5].value,
-                eventLong: $(this).parent()[0].attributes[4].value,
-                eventLat: $(this).parent()[0].attributes[3].value,
-                eventDesc: $(this).parent()[0].attributes[1].value,
-                eventDir: $(this).parent()[0].attributes[2].value,
-                eventType: $(this).parent()[0].attributes[6].value,
-                eventUID: $(this).parent()[0].attributes[7].value
-            });
-        };
+        yesListRef.child($(this).parent()[0].attributes[7].value).remove();
+        // Sets the information for the events
+        eventRef.set({
+            eventName: $(this).parent()[0].attributes[5].value,
+            eventLong: $(this).parent()[0].attributes[4].value,
+            eventLat: $(this).parent()[0].attributes[3].value,
+            eventDesc: $(this).parent()[0].attributes[1].value,
+            eventDir: $(this).parent()[0].attributes[2].value,
+            eventType: $(this).parent()[0].attributes[6].value,
+            eventUID: $(this).parent()[0].attributes[7].value
+        });
     });
 
     // Transfers event information from no list to yes list
     $(".populatedLikesDislikes").on("click", ".btn-yes", function() {
-        if ($(this).text() == 'Move to Likes') {
-            var eventRef = yesListRef.child($(this).parent()[0].attributes[7].value);
+        var eventRef = yesListRef.child($(this).parent()[0].attributes[7].value);
 
-            noListRef.child($(this).parent()[0].attributes[7].value).remove();
-            // Sets the information for the events
-            eventRef.set({
-                eventName: $(this).parent()[0].attributes[5].value,
-                eventLong: $(this).parent()[0].attributes[4].value,
-                eventLat: $(this).parent()[0].attributes[3].value,
-                eventDesc: $(this).parent()[0].attributes[1].value,
-                eventDir: $(this).parent()[0].attributes[2].value,
-                eventType: $(this).parent()[0].attributes[6].value,
-                eventUID: $(this).parent()[0].attributes[7].value
-            });
-        };
+        noListRef.child($(this).parent()[0].attributes[7].value).remove();
+        // Sets the information for the events
+        eventRef.set({
+            eventName: $(this).parent()[0].attributes[5].value,
+            eventLong: $(this).parent()[0].attributes[4].value,
+            eventLat: $(this).parent()[0].attributes[3].value,
+            eventDesc: $(this).parent()[0].attributes[1].value,
+            eventDir: $(this).parent()[0].attributes[2].value,
+            eventType: $(this).parent()[0].attributes[6].value,
+            eventUID: $(this).parent()[0].attributes[7].value
+        });
+    });
+
+        // Transfers event information from no list to yes list
+    $(".populatedLikesDislikes").on("click", ".btn-remove", function() {
+        noListRef.child($(this).parent()[0].attributes[7].value).remove();
     });
 }
