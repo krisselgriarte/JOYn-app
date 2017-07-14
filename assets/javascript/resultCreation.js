@@ -3,7 +3,7 @@ var modalLong;
 var likesDislikesArray;
 
 function createResultsFromAjax (arr) {
-	if (arr.length == 0) {
+	if (arr.length == 0 || arr == undefined) {
 		$(".resultsContainer").text("Sorry there were no results");
 	} else {
 		for (var i = 0; i < arr.length; i++) {
