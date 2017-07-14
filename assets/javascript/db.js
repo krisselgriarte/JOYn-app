@@ -87,11 +87,14 @@ function userActBtns() {
     // Variables: Firebase access
     var rootRef = firebase.database().ref();
     var userRef = rootRef.child('users');
+    var chatRef = rootRef.child("chat");
     var currUserUID = firebase.auth().currentUser.uid;
+    var currUsername = firebase.auth().currentUser.displayName;
     var userRefChild = userRef.child(currUserUID);
     var userInfoRef = userRefChild.child('userInfo');
     var yesListRef = userRefChild.child('yesList');
     var noListRef = userRefChild.child('noList');
+    
 
     // Transfers event information from yes list to no list
     $(".populatedLikesDislikes").on("click", ".btn-no", function() {
@@ -130,5 +133,43 @@ function userActBtns() {
         // Transfers event information from no list to yes list
     $(".populatedLikesDislikes").on("click", ".btn-remove", function() {
         noListRef.child($(this).parent()[0].attributes[7].value).remove();
+    });
+
+    $(".populatedLikesDislikes").on("click", ".btn-chat", function() {
+        console.log($(this));
+        var eventRef = chatRef.child($(this).parent()[0].attributes[7].value);
+        eventRef.off();
+        eventRef.on("child_added", function(snapshot){
+			var userName = snapshot.val().username;
+			var dateTime = snapshot.val().time;
+			var newMessage = snapshot.val().message;
+
+			$("#chatbox").append("<br>" + "(" + userName + " [" + dateTime + "] " + ")" + ": " + newMessage + "<br>");
+            
+		});
+        
+	 	$("#submitmsg").on("click", function(event){
+			event.preventDefault();
+
+			//Get the users message
+			var inputValue = $("#usermsg").val().trim();
+
+			//Get the date/time stamp
+			var dateTime = moment().format('L LT');
+
+			console.log(dateTime);
+            console.log(inputValue);
+            console.log(currUsername)
+			
+			$("#chatbox").animate({ scrollTop: $(document).height() }, "slow");
+
+			eventRef.push({
+				time: dateTime,
+				message: inputValue,
+				username: currUsername
+			});
+
+            $("#submitmsg").empty();
+		});
     });
 }
