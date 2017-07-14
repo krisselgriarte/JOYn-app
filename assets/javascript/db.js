@@ -64,7 +64,11 @@ function getYesList() {
     currYesListRef.on('value', function(snapshot) {
         // Stores yes list from Firebase
         var yesListObj = snapshot.val().yesList;
+        if (yesListObj) {
         likeObjConvertToArray(yesListObj);
+        } else {
+            $(".populatedLikesDislikes").text("You haven't liked anything yet!");
+            }
     });
 } 
 
@@ -78,7 +82,10 @@ function getNoList() {
     currNoListRef.on('value', function(snapshot) {
         // Stores no list from Firebase
         var noListSnapObj = snapshot.val().noList;
-        dislikeObjConvertToArray(noListSnapObj);
+        if (noListSnapObj) {
+            dislikeObjConvertToArray(noListSnapObj);
+        } else {$(".populatedLikesDislikes").text("You haven't disliked anything yet!");
+            }
     });
 }
 
