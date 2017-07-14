@@ -45,13 +45,11 @@ function trailAjaxCall(url) {
 		}).done(function(response) {	
 			allTheResultsObj = response.places;
 			console.log(allTheResultsObj);
-			if (likesDislikesArray == null) {
+			if (likesDislikesArray == undefined) {
 				createResultsFromAjax(allTheResultsObj);
 				storeUserInfo();
 			} else {
-				if (allTheResultsObj != null) {
-					compare(allTheResultsObj, likesDislikesArray);
-				}
+				compare(allTheResultsObj, likesDislikesArray);
         		createResultsFromAjax(allTheResultsObj);
         		storeUserInfo();
         	}
@@ -79,7 +77,7 @@ function compare (arr1, arr2) {
 	console.log(arr1,arr2);
 	for (var i = arr1.length -1; i >= 0; i--) {
 		for (var j = 0; j < arr2.length; j++) {
-			if (arr1[i].activities[0].unique_id == arr2[j]) {
+			if (arr1[i] && arr1[i].activities[0].unique_id == arr2[j]) {
 				allTheResultsObj.splice(i,1);
 			}
 		}
