@@ -12,6 +12,8 @@ function createLikes (arr) {
 		moreInfoButton.attr("data-target", "#exampleModalLong");
 		dislikeButton.text("Move to Nopes");
 		chatButton.text("Chat");
+		chatButton.attr("data-toggle", "modal");
+		chatButton.attr("data-target", "#myModal");
 		resultDiv.attr(arr[i]);
 		resultDivName.text(arr[i].eventName);
 		resultDiv.append(resultDivName);

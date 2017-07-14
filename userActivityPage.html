@@ -10,6 +10,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/userActivity.css">
+    <!--Chat CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/userActivity.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
     <style>
@@ -85,6 +87,42 @@
   </div>
 </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Event Name</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Place Chat window here -->
+            	<div id="wrapper">
+				    <div id="menu">
+				        <!--p class="welcome">Welcome, <b><span id="userName">Melvin</span></b></p-->
+				        <!--p class="logout"><a id="exit" href="#">Exit Chat</a></p-->
+				        <div style="clear:both"></div>
+				    </div>
+				     
+				    <div id="chatbox"></div>
+				     
+				    <form name="message" action="">
+				        <input name="usermsg" type="text" id="usermsg" size="63" />
+				        <!--input name="submitmsg" type="submit"  id="submitmsg" value="Send" /-->
+				        <button id="submitmsg" name="submitmsg">Send</button>
+				    </form>
+					</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -106,5 +144,6 @@
     <script src="assets/javascript/db.js" type="text/javascript"></script>
 <script type="text/javascript" src="assets/javascript/likesDislikes.js"></script>
 <script type="text/javascript" src="assets/javascript/eventSlideRemoval.js"></script>
+<script type="text/javascript" src="assets/javascript/chat.js"></script>
 </body>
 </html>
