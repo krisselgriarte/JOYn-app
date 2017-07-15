@@ -27,6 +27,7 @@ body {
 	width: 50%; 
 	height: 100%; 
 	margin: auto;
+	margin-top: 20px;
 	border: 2px solid black;
 	background: rgb(200, 54, 54);
    	background: rgba(200, 54, 54, 0.5);
@@ -36,7 +37,8 @@ body {
 }
 
 #dislikes {
-	width: 100px;
+	width: 40%;
+	margin-left: 30px;
 	background-color: #E5A21E;
 	border-radius: 30px/10px;
 	color: #281C78;
@@ -50,7 +52,7 @@ body {
 }
 
 #likes {
-	width: 100px;
+	width: 40%;
 	background-color:#E5A21E;
 	margin-left: 30px;
 	border-radius: 30px/10px;
