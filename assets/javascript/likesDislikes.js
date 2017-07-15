@@ -75,8 +75,13 @@ function dislikeObjConvertToArray (obj) {
 $( window ).on( "load", function() {
 	getYesList();
 	userActBtns();
+	chatFunc();
 })
 
 $("#dislikes").on("click", function()
 	{getNoList()});
 $("#likes").on("click", function() {getYesList()});
+
+$("#myModal").on("display", "none", function() {
+	$("#chatbox").empty();
+})

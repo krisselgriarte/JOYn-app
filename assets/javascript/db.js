@@ -169,7 +169,7 @@ function userActBtns() {
             console.log(currUsername)
 			
 			$("#chatbox").animate({ scrollTop: $(document).height() }, "slow");
-
+            
 			eventRef.push({
 				time: dateTime,
 				message: inputValue,
