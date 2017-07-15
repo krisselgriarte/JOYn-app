@@ -11,7 +11,7 @@ body {
    	background: rgba(200, 54, 54, 0.5);
 	width: 50%;
 	height: 50%;
-	border: 2px solid transparent;
+	border: 2px solid black;
 	border-radius: 130px/10px;
 	margin-top: 70px;
 	padding-bottom: 20px;
@@ -69,3 +69,4 @@ label {
 	background-color: #D9AB2C;
 	color: black;
 }
+

@@ -26,6 +26,9 @@ body {
 .resultsContainer {
 	width: 50%;
 	margin: auto;
+	color: white;
+	font-size: 14px;
+	font-family: 'Fredericka the Great', cursive;
 
 }
 
@@ -33,7 +36,7 @@ body {
 	width: 600px;
 	height: 80px;
 	margin: 5px auto;
-	border: 1px solid transparent;
+	border: 2px solid black;
 	border-radius: 30px/10px;
 	background: rgb(200, 54, 54);
    	background: rgba(200, 54, 54, 0.5);
@@ -58,38 +61,37 @@ p {
 }
 
 .btn-no {
-	color: white;
+	color: #281C78;
 	background-color: #E5A21E;
 	width: 100px;
    	border-radius: 30px/10px;
-	font-size: 20px;
-	margin:  0px 20px 10px 60px;
+	font-size: 15px;
+	margin:  0px 5px 10px 60px;
 }
 
 .btn-info {
-	color: white;
+	color: #281C78;
 	background-color: #E5A21E;
 	width: 100px;
    	border-radius: 30px/10px;
-	font-size: 20px;
-	margin:  0px 20px 10px 60px;
+	font-size: 15px;
+	margin:  0px 5px 10px 60px;
 }
 
 .btn-yes {
-	color: white;
+	color: #281C78;
 	background-color: #E5A21E;
 	width: 100px;
    	border-radius: 30px/10px;
-   	margin:  0px 20px 10px 60px;
-	font-size: 20px;
+   	margin:  0px 5px 10px 60px;
+	font-size: 15px;
 }
-
 
 
 #exampleModalLongTitle, #Description, #Directions {
 	color: green;
 	text-align: center;
-	font-size: 14px;
+	font-size: 20px;
 }
 
 #modalDescription, #modalDirections {

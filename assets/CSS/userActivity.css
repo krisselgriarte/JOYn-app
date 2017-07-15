@@ -12,7 +12,7 @@ body {
 	border-radius: 130px/10px;
 	margin: auto;
 	display: block;
-	width: 40%;
+	width: 50%;
 }
 
 .btn-warning, .btn-group {
@@ -25,9 +25,9 @@ body {
 
 .populatedLikesDislikes {
 	width: 50%; 
-	height: 300px; 
+	height: 100%; 
 	margin: auto;
-	border: 1px solid black
+	border: 2px solid black;
 	background: rgb(200, 54, 54);
    	background: rgba(200, 54, 54, 0.5);
    	border-radius: 130px/10px;
@@ -36,20 +36,21 @@ body {
 }
 
 #dislikes {
-	width: 200px;
+	width: 100px;
 	background-color: #E5A21E;
 	border-radius: 30px/10px;
 	color: #281C78;
+	float: left;
 	font-family: 'Marck Script', cursive;
 	font-size: 18px;
 }
 
 #dislikes:hover {
-	background-color: #D50E36;
+	background-color: #D19A94;
 }
 
 #likes {
-	width: 200px;
+	width: 100px;
 	background-color:#E5A21E;
 	margin-left: 30px;
 	border-radius: 30px/10px;
@@ -59,5 +60,37 @@ body {
 }
 
 #likes:hover {
-	background-color: #F25454;
+	background-color: #D19A94;
 }
+
+.btn-no, .btn-chat, .infoBtn, .btn-remove, .btn-yes {
+	color: #281C78;
+	background-color: #E5A21E;
+	width: 100px;
+   	border-radius: 30px/10px;
+	font-size: 13px;
+	margin:  0px 5px 10px 50px;
+	display: inline;
+	font-family: 'Fredericka the Great', cursive;
+}
+
+p {
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	font-family: 'Fredericka the Great', cursive; 
+
+}
+
+#exampleModalLongTitle, #Description, #Directions {
+	color: green;
+	text-align: center;
+	font-size: 14px;
+}
+
+#modalDescription, #modalDirections {
+	font-size: 14px;
+	color: black;
+}
+
+ 
