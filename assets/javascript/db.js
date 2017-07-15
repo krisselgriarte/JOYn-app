@@ -142,18 +142,26 @@ function userActBtns() {
         noListRef.child($(this).parent()[0].attributes[7].value).remove();
     });
 
+    //Adds chat data to firebase
     $(".populatedLikesDislikes").on("click", ".btn-chat", function() {
         console.log($(this));
         var eventRef = chatRef.child($(this).parent()[0].attributes[7].value);
-        eventRef.off();
+        
+        var currentDateTime = moment().format('L LT');
+
+        eventRef.off("child_added");
         eventRef.on("child_added", function(snapshot){
 			var userName = snapshot.val().username;
 			var dateTime = snapshot.val().time;
 			var newMessage = snapshot.val().message;
 
-			$("#chatbox").append("<br>" + "(" + userName + " [" + dateTime + "] " + ")" + ": " + newMessage + "<br>");
-            
+                if(newMessage != ""){
+                    $("#chatbox").append("<br>" + "(" + userName + " [" + dateTime + "] " + ")" + ": " + newMessage + "<br>");
+                }
+                
+
 		});
+        
         
 	 	$("#submitmsg").on("click", function(event){
 			event.preventDefault();
@@ -164,19 +172,32 @@ function userActBtns() {
 			//Get the date/time stamp
 			var dateTime = moment().format('L LT');
 
-			console.log(dateTime);
+            //Get user name
+            var userName = currUsername;
+            
+            console.log(dateTime);
             console.log(inputValue);
             console.log(currUsername)
-			
-			$("#chatbox").animate({ scrollTop: $(document).height() }, "slow");
+         
+            //Push the message info to firebase
+            eventRef.push({
+                time: dateTime,
+                message: inputValue,
+                username: currUsername
+            });
 
-			eventRef.push({
-				time: dateTime,
-				message: inputValue,
-				username: currUsername
-			});
+            //Clear out the input message textbox
+            $("#usermsg").val("");
 
-            $("#submitmsg").empty();
+			//Automatically adjust scroll bar to bottom of chat window
+            $("#chatbox").animate({ scrollTop: $(document).height() }, "slow");
+            
 		});
+
+        //Clear out chatbox div when modal is closed
+        $('#myModal').on('hidden.bs.modal', function () {
+            //Empty out chatbox div
+            $("#chatbox").empty();
+        })
     });
 }
