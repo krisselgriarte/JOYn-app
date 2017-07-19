@@ -53,3 +53,9 @@ body {
 	.logout { float:right; }
 	  
 	.msgln { margin:0 0 2px 0; }
+
+	button {
+    outline: none;
+}
+
+button:focus {outline:0;}

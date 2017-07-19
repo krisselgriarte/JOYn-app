@@ -3,19 +3,19 @@
 body {
 	background: url(../images/background.jpg) no-repeat fixed;
 	background-size: 100% 100%;
-	
+	text-align: center;
 }
 
-.container {
+.container-fluid {
 	background: rgb(200, 54, 54);
    	background: rgba(200, 54, 54, 0.5);
-	width: 50%;
-	height: 50%;
+	/*width: 50%;*/
+	/*height: 50%;*/
 	border: 2px solid black;
 	border-radius: 130px/10px;
-	margin-top: 70px;
+	margin-top: 30px;
 	padding-bottom: 20px;
-	
+	max-width: 720px;
 }
 
 p {
@@ -24,8 +24,26 @@ p {
 	font-size: 20px;
 }
 
-#activitySelect {
-	color: black;
+#activitySelect, #subOutdoorsSelect {
+	text-align: center;
+    display: block;
+    /*margin-bottom: 10px;*/
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin:auto;
 }
 
 label {
@@ -37,7 +55,7 @@ label {
 	border-radius: 20px;
 	color: black;
 }
-
+/*
 #back, #btnLogout {
 	color: white;
 	border: 1px solid #220E4C;
@@ -47,12 +65,12 @@ label {
 	height: 50%;
 	font-size: 14px;
 	padding: 20px 0px 20px 0px;
-}
+}*/
 
 .btn-warning, .btn-group {
 	color: white;
-	margin: 20px 0px 0px 100px;
-	border-radius: 20px;
+	/*margin: 20px 0px 0px 100px;*/
+	/*border-radius: 20px;*/
 }
 
 /* The Modal */
@@ -70,3 +88,13 @@ label {
 	color: black;
 }
 
+#locationButtonDropdown {
+	/*margin: auto;*/
+	margin-top: 20px;
+}
+
+button {
+    outline: none;
+}
+
+button:focus {outline:0;}
