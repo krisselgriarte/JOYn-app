@@ -4,7 +4,7 @@
 body {
 	background: url(../images/background.jpg) no-repeat fixed;
 	background-size: 100% 100%;
-	
+	text-align: center;
 }
 
 .container {
@@ -45,8 +45,8 @@ body {
 .btn-warning, .btn-group {
 	text-align: center;
 	color: white;
-	margin: 20px 0px 0px 100px;
-	border-radius: 20px;
+	/*margin: 20px 0px 0px 100px;*/
+	/*border-radius: 20px;*/
 	font-size: 14px;
 }
 
@@ -99,4 +99,13 @@ p {
 	color: black;
 }
 
+#locationButtonDropdown {
+	/*margin: auto;*/
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
  
+ button {
+    outline: none;
+}
+button:focus {outline:0;}

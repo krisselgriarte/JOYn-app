@@ -7,11 +7,11 @@ function createResultsFromAjax (arr) {
 		$(".resultsContainer").text("Sorry there were no results");
 	} else {
 		for (var i = 0; i < arr.length; i++) {
-			var resultDiv = $("<div class='resultDiv'>");
-			var likeButton = $("<button class='btn-yes'>");
-			var dislikeButton = $("<button class='btn-no'>");
-			var moreInfoButton = $("<button class='btn-info'>");
-			var resultDivName = $("<p>");
+			var resultDiv = $("<div class='resultDiv container-fluid row'>");
+			var likeButton = $("<button class='btn-yes col-xs-4'>");
+			var dislikeButton = $("<button class='btn-no col-xs-4'>");
+			var moreInfoButton = $("<button class='btn-info col-xs-4'>");
+			var resultDivName = $("<p class='row'>");
 			moreInfoButton.text("Info");
 			moreInfoButton.attr("data-toggle", "modal");
 			moreInfoButton.attr("data-target", "#exampleModalLong");
