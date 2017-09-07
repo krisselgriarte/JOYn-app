@@ -18,47 +18,69 @@
 
 <body>
     <!-- Buttons for Back Page and Log out -->
-    <div class="btn-group">
-        <a href="index.html" class="btn btn-warning" id="btn-joyn">JOYn</a>
-            <a href="index.html" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+    <!-- <div class="btn-group">
+        <div class="btn btn-warning" id="btn-joyn">JOYn</div>
+            <span class="caret"></span>
+ -->
+
+    <div class="dropdown btn-group" id="locationButtonDropdown">
+        <button id="dLabel" id="btn-joyn" class="btn btn-warning" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        JOYn
+        <span class="caret"></span>
+        </button>
             <ul class="dropdown-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Previous Page</a></li>
+                <li><a href="userActivityPage.html">Your Profile</a></li>
                 <li><a href="index.html" id="btnLogout">Log Out</a></li>
             </ul>
-        <img src="assets/images/logo.png" width="70px" height="90px">
+       <!--  <img src="assets/images/logo.png" width="70px" height="90px"> -->
       </div>
 
     <!-- Whole container -->
-    <div class="container">
+    <div class="container-fluid">
         <p>
             <div id="locationButton">Use my current location<img src="assets/images/currentlocation.png" width="30px" height="30px">
         </p>
         
         <div id="out"></div>
 
-        <div id="location">OR select a location:</div>
+        <p id="location">OR select a location:</p>
     </div>
 
     <!-- Form to select location from dropdown -->
     <form id="locationForm">
+        <div class="form-group">
+        <div class="col-sm-10">
         <select name="country" class="countries order-alpha include-CA-US presel-US locationField" id="countryId">
             <option value="">Select Country</option>
         </select>
-        <br>
-        <br>
+        </div>
+        </div>
+        <!-- <br> -->
+        <!-- <br> -->
+        <div class="form-group">
+        <div class="col-sm-10">
         <select name="state" class="states order-alpha locationField" id="stateId">
             <option value="">Select State</option>
         </select>
-        <br>
-        <br>
+        </div>
+        </div>
+        <!-- <br> -->
+        <!-- <br> -->
+        <div class="form-group">
+        <div class="col-sm-10">
         <select name="city" class="cities order-alpha locationField" id="cityId">
              <option value="">Select City</option>
          </select>
-        <br>
-        <br>
+         </div>
+         </div>
+        <!-- <br> -->
+        <!-- <br> -->
+        <div class="form-group">
+        <div class="col-sm-10">
         <button type="submit" id="locationFormSubmit" class="btn btn-primary">Submit</button>
         <br>
+        </div>
+        </div>
     </form>
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
