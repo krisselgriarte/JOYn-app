@@ -1,6 +1,6 @@
 # JOYn-app
 
-#App Name: JOYn
+# App Name: JOYn
 Contributors: Daniel Kim, Cory Baddeley, Krissel Griarte, and Melvin Hill
 
 “Our app embraces the spontaneity of life, and allows users to interact with each other in order to plan, connect, share costs, or relive an amazing experience. The unique thing about JOYn is users are connecting with people with the similar interests as them”.
