@@ -4,7 +4,7 @@
 body {
 	background: url(../images/background.jpg) no-repeat fixed;
 	background-size: 100% 100%;
-	
+
 }
 
 .subtitle {
@@ -21,10 +21,10 @@ body {
 	font-size: 115px;
 	color: #FDFDBE;
 	font-family: 'Fredericka the Great', cursive;
-	
+
 }
 
-.container {
+.container-fluid {
 	background: rgb(200, 54, 54);
    	background: rgba(200, 54, 54, 0.5);
 	width: 50%;
@@ -33,7 +33,7 @@ body {
 	border-radius: 130px/10px;
 	margin-top: 100px;
 	padding-bottom: 20px;
-	
+
 }
 
  button {
